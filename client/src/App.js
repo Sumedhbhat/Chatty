@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import ChatPage from "./Pages/ChatPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} exact />
+      <Route path="/chats" element={<ChatPage />} />
+      <Route path="*" element={<h1> Not Found</h1>} />
+    </Routes>
   );
-}
+};
 
 export default App;

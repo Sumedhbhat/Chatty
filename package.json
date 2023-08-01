@@ -1,0 +1,19 @@
+{
+  "name": "simplechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm run start",
+    "server": "cd server && npm run start",
+    "client_setup": "cd client && npm i",
+    "server_setup": "cd server && npm i",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "setup": "concurrently \"npm run client_setup\" \"npm run server_setup\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
