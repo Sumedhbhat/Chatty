@@ -4,6 +4,8 @@ const { chats } = require("./data/data");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middlewear/errorMiddlewear");
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +20,10 @@ app.get("/", (req, res) => {
   res.json({ msg: "Hello world" });
 });
 
-app.use("/api/user");
+app.use("/api/user", userRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log("Server started on Port", PORT);
