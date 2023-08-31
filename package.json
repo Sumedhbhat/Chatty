@@ -8,8 +8,11 @@
     "server": "cd server && npm run start",
     "client_setup": "cd client && npm i",
     "server_setup": "cd server && npm i",
-    "start": "concurrently \"npm run client\" \"npm run server\"",
-    "setup": "concurrently \"npm run client_setup\" \"npm run server_setup\""
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "client_build": "npm run build --prefix client",
+    "setup": "concurrently \"npm run client_setup\" \"npm run server_setup\"",
+    "build": "npm run setup && npm run client_build",
+    "start": "npm run server"
   },
   "author": "",
   "license": "ISC",
